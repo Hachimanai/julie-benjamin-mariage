@@ -155,11 +155,24 @@ h1, h2, h3 {
 /* Icons */
 .icon-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 25px;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
     color: var(--accent-gold);
+}
+
+.icon-header svg {
+    flex-shrink: 0;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    color: var(--text-primary);
+    margin: 0; /* Suppression des marges pour un alignement parfait */
+    line-height: 1;
 }
 
 /* Countdown */
@@ -534,7 +547,7 @@ h1, h2, h3 {
     background-color: var(--inner-beige);
     border-radius: 1rem;
     margin: 40px 0;
-    padding: 80px 35px;
+    padding: 60px 25px;
 }
 
 .heart-icon-gold {
@@ -546,9 +559,10 @@ h1, h2, h3 {
 
 .rsvp-title {
     font-family: var(--font-serif);
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 15px;
     line-height: 1.2;
+    color: var(--text-primary);
 }
 
 .divider {
@@ -567,6 +581,29 @@ h1, h2, h3 {
     height: 1px;
     width: 25px;
     background-color: #e8e1d9;
+}
+
+.form-info-box {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.form-info-box strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.form-info-box p {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
 }
 
 .rsvp-form {
@@ -605,10 +642,10 @@ input[type="text"] {
 .radio-pill span {
     display: block;
     padding: 16px 10px;
-    background: #ffffff;
-    border: 1px solid #e8e1d9;
+    background: #eeeeee; /* Fond gris clair par défaut */
+    border: none;
     border-radius: 8px;
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-secondary);
     transition: all 0.2s;
     text-align: center;
@@ -617,24 +654,33 @@ input[type="text"] {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 300;
 }
 
 .radio-pill input:checked + span {
-    background: #e9e0d5;
-    border-color: #d8cfc4;
+    background: #e9e0d5; /* Fond beige une fois sélectionné */
     color: var(--text-primary);
+    font-weight: 400;
 }
 
 .toggle-group {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(232, 225, 217, 0.5);
+    padding: 18px 0;
+    border-top: 1px solid #e8e1d9;
+}
+
+.toggle-group:last-of-type {
+    border-bottom: 1px solid #e8e1d9;
+    margin-bottom: 40px;
 }
 
 .toggle-group label {
     margin-bottom: 0;
+    font-size: 11px;
+    color: var(--text-primary);
+    font-weight: 300;
 }
 
 /* Switch styling */
