@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation de Mariage | Amara & Ethan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="names">Amara & Ethan</div>
+            <div class="invite-text">VOUS INVITENT À CÉLÉBRER LEUR MARIAGE</div>
+            <div class="date">Samedi 30 mai 2026</div>
+            <div class="heart-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+        </header>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <div class="section-label">COMPTE À REBOURS</div>
+            <h2 class="section-title-alt">avant le grand jour</h2>
+            <div id="countdown" class="countdown-grid">
+                <div class="time-box">
+                    <span id="days" class="number">--</span>
+                    <span class="label">JOURS</span>
+                </div>
+                <div class="time-box">
+                    <span id="hours" class="number">--</span>
+                    <span class="label">HEURES</span>
+                </div>
+                <div class="time-box">
+                    <span id="minutes" class="number">--</span>
+                    <span class="label">MINUTES</span>
+                </div>
+                <div class="time-box">
+                    <span id="seconds" class="number">--</span>
+                    <span class="label">SECONDES</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lieu Section -->
+        <section class="venue-section">
+            <div class="icon-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <h2 class="section-title">Lieu</h2>
+            </div>
+            <h3 class="venue-name">Château de Montclair</h3>
+            <p class="venue-address">Route des Vignes, 13210<br>Saint-Rémy-de-Provence, France</p>
+            
+            <div class="button-group">
+                <button class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg> Ouvrir dans Maps</button>
+                <button class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Itinéraire</button>
+            </div>
+
+            <div class="venue-image-container">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1000" alt="Château de Montclair" class="venue-image">
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+            <p class="venue-description">Un château provençal entouré d'oliviers et de jardins méditerranéens, idéal pour une réception en plein air.</p>
+        </section>
+
+        <!-- Programme Section -->
+        <section class="program-section">
+            <div class="icon-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <h2 class="section-title">Programme</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-day">Jour 1 — 30 mai 2026</div>
+                <div class="timeline-item">
+                    <div class="time">14H30</div>
+                    <div class="event">
+                        <strong>Cérémonie civile</strong>
+                        <p>Mairie de Saint-Rémy-de-Provence<br>Place Jules-Pellissier 13210 Saint-Rémy-de-Provence</p>
+                    </div>
+                </div>
+
+                <div class="timeline-day">Jour 2 — 31 mai 2026</div>
+                <div class="timeline-item">
+                    <div class="time">15H00</div>
+                    <div class="event">
+                        <strong>Accueil des invités</strong>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">16H30</div>
+                    <div class="event">
+                        <strong>Cérémonie</strong>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">17H15</div>
+                    <div class="event">
+                        <strong>Sortie des mariés</strong>
+                        <p>Ouverture de la salle et installation des invités</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">17H30</div>
+                    <div class="event">
+                        <strong>Cocktail</strong>
+                        <p>Vin d'honneur & animations</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">19H30</div>
+                    <div class="event">
+                        <strong>Dîner</strong>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">23H00</div>
+                    <div class="event">
+                        <strong>Ouverture du bal</strong>
+                        <p>Soirée dansante</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="menu-section">
+            <div class="icon-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8c0 3.61-2.9 6-6 6-3.1 0-6-2.39-6-6V4h12v4z"/><path d="M12 14v7"/><path d="M9 21h6"/></svg>
+                <h2 class="section-title">Menu</h2>
+            </div>
+
+            <div class="menu-cards">
+                <div class="menu-card">
+                    <div class="menu-icon">🥂</div>
+                    <h3>Cocktail</h3>
+                    <p>Champagne Brut<br>Sélection de vins blancs & rosés<br>Saumon gravlax & crème citronnée<br>Foie gras sur brioche toastée</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-icon">🍽️</div>
+                    <h3>Entrée</h3>
+                    <p>Carpaccio de Saint-Jacques, agrumes & huile d'olive vierge</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-icon">🍲</div>
+                    <h3>Plat</h3>
+                    <p>Filet de boeuf rôti, jus réduit au thym - Purée truffée & légumes de saison</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-icon">🍰</div>
+                    <h3>Dessert</h3>
+                    <p><strong>Option 1 :</strong> Entremets vanille & fruits rouges</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dress Code Section -->
+        <section class="dress-code-section">
+            <div class="icon-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9l4-6z"/></svg>
+                <h2 class="section-title">Code vestimentaire</h2>
+            </div>
+            
+            <div class="card dress-card">
+                <div class="dress-badge">Chic et élégant</div>
+                <p>Messieurs Costume sombre ou bleu marine, chemise claire.<br>Mesdames Robe longue ou midi, matières fluides et élégantes.</p>
+                <div class="color-palette">
+                    <span class="color-circle" style="background-color: #d2c5b3;"></span>
+                    <span class="color-circle" style="background-color: #c4a47c;"></span>
+                    <span class="color-circle" style="background-color: #e6a892;"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section">
+            <div class="icon-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <h2 class="section-title">Informations importantes</h2>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>Photographies et souvenirs</h4>
+                    <p>Nous serions ravis que vous capturiez quelques souvenirs de cette journée. N'hésitez pas à partager vos photos avec nous après l'événement.</p>
+                </div>
+                <div class="info-item">
+                    <h4>Téléphones pendant la cérémonie</h4>
+                    <p>Afin de profiter pleinement de ce moment, nous vous invitons à garder vos téléphones discrets pendant la cérémonie.</p>
+                </div>
+                <div class="info-item">
+                    <h4>Moments partagés</h4>
+                    <p>Votre présence est le plus beau des cadeaux. Si vous souhaitez néanmoins nous témoigner une attention particulière, une urne sera à votre disposition le jour de la réception.</p>
+                </div>
+                <div class="info-item">
+                    <h4>Esprit de la journée</h4>
+                    <p>Laissez les montres de côté, profitez du moment et célébrons ensemble cette journée qui s'annonce remplie de joie et de souvenirs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hébergement Section -->
+        <section class="accommodation-section">
+            <div class="icon-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <h2 class="section-title">Hébergement</h2>
+            </div>
+            
+            <p class="accommodation-intro">Pour ceux qui souhaitent prolonger le week-end et profiter pleinement de ces moments à nos côtés, voici quelques suggestions d'hôtels situés à proximité du lieu de réception :</p>
+
+            <div class="hotel-list">
+                <div class="hotel-item">
+                    <strong>Hôtel Le Mas des Lavandes</strong>
+                    <p>12 chemin des Lavandes, 13210 Saint-Rémy-de-Provence<br>Tarif indicatif : à partir de 110€ la nuit</p>
+                </div>
+                <div class="hotel-item">
+                    <strong>Hôtel La Bastide du Vallon</strong>
+                    <p>8 route du Vallon, 13520 Les Baux-de-Provence<br>Tarif indicatif : à partir de 140€ la nuit</p>
+                </div>
+                <div class="hotel-item">
+                    <strong>Hôtel Le Clos Saint-Martin</strong>
+                    <p>5 rue Saint-Martin, 13210 Saint-Rémy-de-Provence<br>Tarif indicatif : à partir de 125€ la nuit</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <div class="card rsvp-card">
+                <div class="heart-icon-gold">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                </div>
+                <h2 class="rsvp-title">Merci de confirmer votre présence</h2>
+                <div class="divider">♥</div>
+
+                <form id="rsvp-form" class="rsvp-form">
+                    <div class="form-group">
+                        <label>Merci d'indiquer votre nom complet *</label>
+                        <input type="text" name="fullname" placeholder="Nom et prénom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Serez-vous présent(e) ? *</label>
+                        <div class="radio-group">
+                            <label class="radio-pill">
+                                <input type="radio" name="presence" value="yes" checked>
+                                <span>Oui, je serai présent(e)</span>
+                            </label>
+                            <label class="radio-pill">
+                                <input type="radio" name="presence" value="no">
+                                <span>Non désolé(e), je ne pourrai pas</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group toggle-group">
+                        <label>Serez-vous accompagné(e) ?</label>
+                        <label class="switch">
+                            <input type="checkbox" name="accompanied">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group toggle-group">
+                        <label>Venez-vous avec des enfants ?</label>
+                        <label class="switch">
+                            <input type="checkbox" name="children">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group toggle-group">
+                        <label>Avez-vous des allergies ou restrictions alimentaires ?</label>
+                        <label class="switch">
+                            <input type="checkbox" name="allergies">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark">Envoyer votre réponse</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="logo">RÉVÉLIA</div>
+            <p class="slogan">CHAQUE HISTOIRE MÉRITE UNE ENTRÉE EXCEPTIONNELLE</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
