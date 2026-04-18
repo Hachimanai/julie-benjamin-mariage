@@ -8,7 +8,7 @@
     --dark-btn: #333333;
     
     --font-serif: 'Cormorant Garamond', serif;
-    --font-sans: 'Montserrat', sans-serif;
+    --font-sans: 'Inter', sans-serif;
 }
 
 * {
@@ -633,32 +633,29 @@ input[type="text"] {
     color: var(--text-primary);
 }
 
-.radio-group {
+.presence-options {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
 }
 
-.radio-pill span {
-    display: block;
+.presence-btn {
     padding: 16px 10px;
-    background: #eeeeee; /* Fond gris clair par défaut */
-    border: none;
+    background: #eeeeee;
     border-radius: 8px;
     font-size: 11px;
     color: var(--text-secondary);
     transition: all 0.2s;
     text-align: center;
     cursor: pointer;
-    height: 100%;
+    font-weight: 300;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 300;
 }
 
-.radio-pill input:checked + span {
-    background: #e9e0d5; /* Fond beige une fois sélectionné */
+.presence-btn.active {
+    background: #e9e0d5;
     color: var(--text-primary);
     font-weight: 400;
 }

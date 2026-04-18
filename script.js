@@ -25,6 +25,18 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
+// Presence Buttons Logic
+const presenceBtns = document.querySelectorAll('.presence-btn');
+const presenceInput = document.getElementById('presence-input');
+
+presenceBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        presenceBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        presenceInput.value = this.dataset.value;
+    });
+});
+
 // RSVP Form Handling
 const rsvpForm = document.getElementById('rsvp-form');
 

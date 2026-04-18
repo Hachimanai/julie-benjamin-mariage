@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 <body>
     <main>
@@ -253,15 +253,10 @@
 
                     <div class="form-group">
                         <label>Serez-vous présent(e) ? *</label>
-                        <div class="radio-group">
-                            <label class="radio-pill">
-                                <input type="radio" name="presence" value="yes" checked>
-                                <span>Oui, je serai présent(e)</span>
-                            </label>
-                            <label class="radio-pill">
-                                <input type="radio" name="presence" value="no">
-                                <span>Non désolé(e), je ne pourrai pas</span>
-                            </label>
+                        <input type="hidden" name="presence" id="presence-input" value="yes">
+                        <div class="presence-options">
+                            <div class="presence-btn active" data-value="yes">Oui, je serai présent(e)</div>
+                            <div class="presence-btn" data-value="no">Non désolé(e), je ne pourrai pas</div>
                         </div>
                     </div>
 
