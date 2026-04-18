@@ -3,8 +3,8 @@
     --main-bg: #ffffff; 
     --inner-beige: #faf7f2; /* Beige parchemin très clair et doux */
     --accent-gold: #4169E1; 
-    --text-primary: #333333;
-    --text-secondary: #666666;
+    --text-primary: #2a2a2a; /* Plus doux que #333333 */
+    --text-secondary: #7a7a7a; /* Plus doux que #666666 */
     --dark-btn: #4169E1;
     
     --font-serif: 'Cormorant Garamond', serif;
@@ -33,7 +33,7 @@ main {
     width: 100%;
     background-color: var(--main-bg);
     padding: 0 25px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04); /* Plus diffus et élégant */
     min-height: 100vh;
     position: relative;
     overflow-x: hidden; /* Sécurité supplémentaire */
@@ -100,7 +100,7 @@ section.is-visible {
 
 .invite-text {
     font-size: 9px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: var(--text-secondary);
     margin-bottom: 25px;
     font-weight: 300;
@@ -126,7 +126,7 @@ section.is-visible {
     content: "";
     height: 1px;
     width: 30px;
-    background-color: rgba(65, 105, 225, 0.2); /* Bleu roi translucide */
+    background-color: rgba(65, 105, 225, 0.12); /* Bleu roi translucide */
 }
 
 /* Icons */
@@ -162,7 +162,7 @@ section.is-visible {
 
 .section-label {
     font-size: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: var(--text-secondary);
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -240,7 +240,7 @@ section.is-visible {
 
 .btn-outline {
     background: transparent;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     color: var(--text-primary);
     border-radius: 6px;
     padding: 8px 18px;
@@ -450,7 +450,7 @@ section.is-visible {
 
 .dress-badge {
     display: inline-block;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     padding: 10px 35px;
     border-radius: 40px;
     font-size: 14px;
@@ -735,6 +735,18 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(22px);
+}
+
+@media (max-width: 450px) {
+    .names {
+        font-size: 48px;
+    }
+    .section-title-alt {
+        font-size: 26px;
+    }
+}
+}
+);
 }
 
 @media (max-width: 450px) {
