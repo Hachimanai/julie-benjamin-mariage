@@ -37,6 +37,58 @@ presenceBtns.forEach(btn => {
     });
 });
 
+// Carousel Logic
+const carousel = document.getElementById('venue-carousel');
+const dots = document.querySelectorAll('.dot');
+
+if (carousel && dots.length > 0) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        carousel.classList.add('active-drag');
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+        isDown = false;
+        carousel.classList.remove('active-drag');
+    });
+
+    carousel.addEventListener('mouseup', () => {
+        isDown = false;
+        carousel.classList.remove('active-drag');
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 2; // Vitesse de défilement
+        carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    carousel.addEventListener('scroll', () => {
+        const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    });
+
+    // Permettre de cliquer sur les points pour naviguer
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            carousel.scrollTo({
+                left: i * carousel.offsetWidth,
+                behavior: 'smooth'
+            });
+        });
+    });
+}
+
 // RSVP Form Handling
 const rsvpForm = document.getElementById('rsvp-form');
 
