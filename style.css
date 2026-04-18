@@ -1,11 +1,11 @@
 :root {
-    --page-bg: #f5f0eb; 
+    --page-bg: #f2eee9; /* Fond extérieur plus clair et neutre */
     --main-bg: #ffffff; 
-    --inner-beige: #f6f3ee;
-    --accent-gold: #c4a47c;
+    --inner-beige: #faf7f2; /* Beige parchemin très clair et doux */
+    --accent-gold: #4169E1; 
     --text-primary: #333333;
     --text-secondary: #666666;
-    --dark-btn: #333333;
+    --dark-btn: #4169E1;
     
     --font-serif: 'Cormorant Garamond', serif;
     --font-sans: 'Inter', sans-serif;
@@ -118,7 +118,7 @@ section {
     content: "";
     height: 1px;
     width: 30px;
-    background-color: #e8e1d9;
+    background-color: rgba(65, 105, 225, 0.2); /* Bleu roi translucide */
 }
 
 /* Icons */
@@ -684,7 +684,7 @@ input[type="text"] {
 }
 
 input:checked + .slider {
-  background-color: #333;
+  background-color: var(--accent-gold);
 }
 
 .slider.round {
@@ -706,4 +706,5 @@ input:checked + .slider:before {
     .section-title-alt {
         font-size: 26px;
     }
+}
 }
