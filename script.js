@@ -1,5 +1,5 @@
 // Countdown Logic
-const targetDate = new Date('May 30, 2026 15:00:00').getTime();
+const targetDate = new Date('July 24, 2027 15:00:00').getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();

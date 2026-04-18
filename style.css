@@ -79,10 +79,12 @@ section {
 }
 
 .names {
-    font-size: 52px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 64px;
     color: var(--accent-gold);
     margin-bottom: 5px;
-    letter-spacing: -1px;
+    letter-spacing: 0;
+    font-weight: 400;
 }
 
 .invite-text {
