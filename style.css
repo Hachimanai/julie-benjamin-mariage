@@ -42,6 +42,14 @@ main {
 section {
     padding: 40px 0;
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Top Bar Navigation */
