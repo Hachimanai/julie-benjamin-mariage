@@ -497,9 +497,10 @@ section.is-visible {
 }
 
 .menu-icon {
-    font-size: 20px;
-    margin-bottom: 12px;
-    display: block;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    color: var(--accent-gold);
 }
 
 .menu-card h3 {
