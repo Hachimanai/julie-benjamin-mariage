@@ -81,54 +81,132 @@ setupToggle('toggle-brunch', 'field-brunch');
 
 // Carousel Logic
 const carousel = document.getElementById('venue-carousel');
-const dots = document.querySelectorAll('.dot');
+const dotsContainer = document.getElementById('carousel-dots');
 
-if (carousel && dots.length > 0) {
+if (carousel) {
+    const images = Array.from(carousel.querySelectorAll('img'));
+    let autoPlayInterval;
+    let currentIndex = 0;
+
+    const getVisibleImages = () => images.filter(img => img.style.display !== 'none');
+
+    const updateCarouselUI = () => {
+        const visibleImages = getVisibleImages();
+        const count = visibleImages.length;
+        
+        if (dotsContainer) {
+            dotsContainer.innerHTML = '';
+            if (count > 1) {
+                dotsContainer.style.display = 'flex';
+                visibleImages.forEach((_, i) => {
+                    const dot = document.createElement('span');
+                    dot.className = i === 0 ? 'dot active' : 'dot';
+                    dot.addEventListener('click', () => {
+                        scrollToIndex(i);
+                        resetAutoPlay();
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            } else {
+                dotsContainer.style.display = 'none';
+            }
+        }
+    };
+
+    const scrollToIndex = (index) => {
+        const visibleImages = getVisibleImages();
+        if (visibleImages.length === 0) return;
+        
+        currentIndex = (index + visibleImages.length) % visibleImages.length;
+        carousel.scrollTo({
+            left: currentIndex * carousel.offsetWidth,
+            behavior: 'smooth'
+        });
+        
+        // Update dots
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    };
+
+    const startAutoPlay = () => {
+        stopAutoPlay();
+        const visibleImages = getVisibleImages();
+        if (visibleImages.length > 1) {
+            autoPlayInterval = setInterval(() => {
+                scrollToIndex(currentIndex + 1);
+            }, 5000);
+        }
+    };
+
+    const stopAutoPlay = () => {
+        if (autoPlayInterval) clearInterval(autoPlayInterval);
+    };
+
+    const resetAutoPlay = () => {
+        stopAutoPlay();
+        startAutoPlay();
+    };
+
+    // Listen for image load errors to refresh UI
+    images.forEach(img => {
+        img.addEventListener('error', updateCarouselUI);
+        img.addEventListener('load', updateCarouselUI);
+    });
+
+    // Manual scroll sync
+    carousel.addEventListener('scroll', () => {
+        const visibleImages = getVisibleImages();
+        if (visibleImages.length > 1) {
+            const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+            if (index !== currentIndex) {
+                currentIndex = index;
+                const dots = dotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+        }
+    });
+
+    // Drag behavior
     let isDown = false;
     let startX;
     let scrollLeft;
 
     carousel.addEventListener('mousedown', (e) => {
+        if (getVisibleImages().length <= 1) return;
         isDown = true;
         carousel.classList.add('active-drag');
         startX = e.pageX - carousel.offsetLeft;
         scrollLeft = carousel.scrollLeft;
+        stopAutoPlay();
     });
 
     carousel.addEventListener('mouseleave', () => {
         isDown = false;
         carousel.classList.remove('active-drag');
+        startAutoPlay();
     });
 
     carousel.addEventListener('mouseup', () => {
         isDown = false;
         carousel.classList.remove('active-drag');
+        startAutoPlay();
     });
 
     carousel.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 2; // Vitesse de défilement
+        const walk = (x - startX) * 2;
         carousel.scrollLeft = scrollLeft - walk;
     });
 
-    carousel.addEventListener('scroll', () => {
-        const index = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-    });
-
-    // Permettre de cliquer sur les points pour naviguer
-    dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            carousel.scrollTo({
-                left: i * carousel.offsetWidth,
-                behavior: 'smooth'
-            });
-        });
-    });
+    // Initial setup
+    updateCarouselUI();
+    startAutoPlay();
 }
 
 // RSVP Form Handling
