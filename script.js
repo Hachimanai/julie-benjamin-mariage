@@ -1,3 +1,46 @@
+// Envelope Animation Logic
+const envelopeWrapper = document.getElementById('envelope-wrapper');
+const envelopeContainer = document.getElementById('envelope-container');
+const envelopeHint = document.getElementById('envelope-hint');
+
+if (envelopeWrapper && envelopeContainer) {
+    // Show hint after 3 seconds if not clicked
+    const hintTimeout = setTimeout(() => {
+        if (!envelopeContainer.classList.contains('open')) {
+            envelopeHint.classList.add('visible');
+        }
+    }, 3000);
+
+    envelopeContainer.addEventListener('click', () => {
+        if (envelopeContainer.classList.contains('open')) return;
+        
+        envelopeContainer.classList.add('open');
+        envelopeHint.classList.remove('visible');
+        clearTimeout(hintTimeout);
+        
+        // Wait for flap animation, then fade out wrapper
+        setTimeout(() => {
+            envelopeWrapper.classList.add('hidden');
+            document.body.classList.remove('locked');
+            
+            // Re-trigger scroll animations and force visible ones
+            document.querySelectorAll('section').forEach(section => {
+                // If section is in viewport or very close to it, show it immediately
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    section.classList.add('is-visible');
+                }
+                observer.observe(section);
+            });
+        }, 800);
+        
+        // Clean up DOM
+        setTimeout(() => {
+            envelopeWrapper.style.display = 'none';
+        }, 2500);
+    });
+}
+
 // Countdown Logic
 const targetDate = new Date('July 24, 2027 15:00:00').getTime();
 
