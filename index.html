@@ -13,6 +13,10 @@
     <main>
         <!-- Hero Section -->
         <header class="hero">
+            <div class="hero-photo">
+                <!-- Emplacement pour la photo "Photo de nous" -->
+                <img src="images/nous.jpg" alt="Julie & Benjamin" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+            </div>
             <h1 class="names">Julie & Benjamin</h1>
             <p class="invite-text">VOUS INVITENT À CÉLÉBRER LEUR MARIAGE</p>
             <p class="date">Samedi 24 juillet 2027</p>
@@ -51,19 +55,31 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 <h2 class="section-title">Lieu</h2>
             </div>
-            <h3 class="venue-name">Château de Montclair</h3>
-            <p class="venue-address">Route des Vignes, 13210<br>Saint-Rémy-de-Provence, France</p>
+            <h3 class="venue-name">Domaine de la Rainville</h3>
+            <p class="venue-address">La Rainville, 28200 Villampuy<br>Eure-et-Loir, France</p>
             
-            <div class="button-group">
-                <button class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg> Ouvrir dans Maps</button>
-                <button class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Itinéraire</button>
+            <div class="button-container-venue">
+                <a href="https://maps.app.goo.gl/NK6XqrtqekJ72aVC9" target="_blank" class="btn btn-primary-venue" style="text-decoration: none;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Voir le lieu
+                </a>
+                <div class="button-group-nav">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Domaine+de+la+Rainville+28200+Villampuy" target="_blank" class="btn btn-outline" style="text-decoration: none;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        Google Maps
+                    </a>
+                    <a href="https://waze.com/ul?ll=48.2713,1.5278&navigate=yes" target="_blank" class="btn btn-outline" style="text-decoration: none;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        Waze
+                    </a>
+                </div>
             </div>
 
             <div class="venue-carousel-container">
                 <div class="venue-carousel" id="venue-carousel">
-                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1000" alt="Château de Montclair 1">
-                    <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&q=80&w=1000" alt="Château de Montclair 2">
-                    <img src="https://images.unsplash.com/photo-1464146072230-91cabc9fa7c0?auto=format&fit=crop&q=80&w=1000" alt="Château de Montclair 3">
+                    <img src="images/rainville_1.jpg" alt="Domaine de la Rainville 1" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=1000'">
+                    <img src="images/rainville_2.jpg" alt="Domaine de la Rainville 2" onerror="this.src='https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&q=80&w=1000'">
+                    <img src="images/rainville_3.jpg" alt="Domaine de la Rainville 3" onerror="this.src='https://images.unsplash.com/photo-1464146072230-91cabc9fa7c0?auto=format&fit=crop&q=80&w=1000'">
                 </div>
                 <div class="carousel-dots" id="carousel-dots">
                     <span class="dot active" data-index="0"></span>
@@ -71,7 +87,7 @@
                     <span class="dot" data-index="2"></span>
                 </div>
             </div>
-            <p class="venue-description">Un château provençal entouré d'oliviers et de jardins méditerranéens, idéal pour une réception en plein air.</p>
+            <p class="venue-description">Un ancien corps de ferme du XIXème siècle entièrement rénové, mêlant charme rustique et élégance avec sa magnifique Bergerie au plafond cathédrale.</p>
         </section>
 
         <!-- Programme Section -->
@@ -80,55 +96,52 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <h2 class="section-title">Programme</h2>
             </div>
+            <p class="program-subtitle">Horaire à préciser</p>
             
             <div class="timeline">
-                <div class="timeline-day">Jour 1 — 24 juillet 2027</div>
+                <div class="timeline-day">Samedi 24 juillet 2027</div>
                 <div class="timeline-item">
-                    <div class="time">14H30</div>
-                    <div class="event">
-                        <strong>Cérémonie civile</strong>
-                        <p>Mairie de Saint-Rémy-de-Provence<br>Place Jules-Pellissier 13210 Saint-Rémy-de-Provence</p>
-                    </div>
-                </div>
-
-                <div class="timeline-day">Jour 2 — 25 juillet 2027</div>
-                <div class="timeline-item">
-                    <div class="time">15H00</div>
+                    <div class="time">--H--</div>
                     <div class="event">
                         <strong>Accueil des invités</strong>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="time">16H30</div>
+                    <div class="time">--H--</div>
                     <div class="event">
-                        <strong>Cérémonie</strong>
+                        <strong>Cérémonie laïque</strong>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="time">17H15</div>
+                    <div class="time">--H--</div>
                     <div class="event">
-                        <strong>Sortie des mariés</strong>
-                        <p>Ouverture de la salle et installation des invités</p>
+                        <strong>Séance Photo</strong>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="time">17H30</div>
+                    <div class="time">--H--</div>
                     <div class="event">
                         <strong>Cocktail</strong>
-                        <p>Vin d'honneur & animations</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="time">19H30</div>
+                    <div class="time">--H--</div>
                     <div class="event">
                         <strong>Dîner</strong>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="time">23H00</div>
+                    <div class="time">--H--</div>
                     <div class="event">
-                        <strong>Ouverture du bal</strong>
-                        <p>Soirée dansante</p>
+                        <strong>Ouverture du Bal</strong>
+                    </div>
+                </div>
+
+                <div class="timeline-day">Dimanche 25 juillet 2027</div>
+                <div class="timeline-item">
+                    <div class="time">11H30</div>
+                    <div class="event">
+                        <strong>Brunch dimanche matin</strong>
                     </div>
                 </div>
             </div>
@@ -141,26 +154,10 @@
                 <h2 class="section-title">Menu</h2>
             </div>
 
-            <div class="menu-cards">
+            <div class="menu-content">
                 <div class="menu-card">
-                    <div class="menu-icon">🥂</div>
-                    <h3>Cocktail</h3>
-                    <p>Champagne Brut<br>Sélection de vins blancs & rosés<br>Saumon gravlax & crème citronnée<br>Foie gras sur brioche toastée</p>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-icon">🍽️</div>
-                    <h3>Entrée</h3>
-                    <p>Carpaccio de Saint-Jacques, agrumes & huile d'olive vierge</p>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-icon">🍲</div>
-                    <h3>Plat</h3>
-                    <p>Filet de boeuf rôti, jus réduit au thym - Purée truffée & légumes de saison</p>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-icon">🍰</div>
-                    <h3>Dessert</h3>
-                    <p><strong>Option 1 :</strong> Entremets vanille & fruits rouges</p>
+                    <div class="menu-icon">✨</div>
+                    <p>Nous vous réservons la surprise du menu, mais nous prévoyons un menu végétarien.<br><br>Merci de le préciser lors de votre réponse dans le formulaire ci-dessous.</p>
                 </div>
             </div>
         </section>
@@ -247,7 +244,7 @@
                 <form id="rsvp-form" class="rsvp-form">
                     <div class="form-info-box">
                         <strong>Présence des enfants</strong>
-                        <p>Nous avons fait le choix de célébrer ce moment entre adultes afin que chacun puisse profiter pleinement de la fête.</p>
+                        <p>Les enfants sont les bienvenus dans ce doux moment de partage.</p>
                     </div>
 
                     <div class="form-group">
@@ -264,32 +261,93 @@
                         </div>
                     </div>
 
-                    <div class="form-group toggle-group">
-                        <label>Serez-vous accompagné(e) ?</label>
-                        <label class="switch">
-                            <input type="checkbox" name="accompanied">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
+                    <div id="additional-fields">
+                        <div class="form-group toggle-group">
+                            <label>Serez-vous accompagné(e) ?</label>
+                            <label class="switch">
+                                <input type="checkbox" name="accompanied" id="toggle-accompanied">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group conditional-field" id="field-accompanied" style="display: none;">
+                            <label>Nom et prénom des personnes</label>
+                            <input type="text" name="accompanied_names" placeholder="Ex: Jean et Marie Dupont">
+                        </div>
 
-                    <div class="form-group toggle-group">
-                        <label>Venez-vous avec des enfants ?</label>
-                        <label class="switch">
-                            <input type="checkbox" name="children">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
+                        <div class="form-group toggle-group">
+                            <label>Venez-vous avec des enfants ?</label>
+                            <label class="switch">
+                                <input type="checkbox" name="children" id="toggle-children">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group conditional-field" id="field-children" style="display: none;">
+                            <label>Prénom - Nom des enfants</label>
+                            <input type="text" name="children_names" placeholder="Ex: Léo, Emma">
+                        </div>
 
-                    <div class="form-group toggle-group">
-                        <label>Avez-vous des allergies ou restrictions alimentaires ?</label>
-                        <label class="switch">
-                            <input type="checkbox" name="allergies">
-                            <span class="slider round"></span>
-                        </label>
+                        <div class="form-group toggle-group">
+                            <label>Y a-t-il des personnes végé ?</label>
+                            <label class="switch">
+                                <input type="checkbox" name="veggie" id="toggle-veggie">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group conditional-field" id="field-veggie" style="display: none;">
+                            <label>Nombre de personnes végétariennes</label>
+                            <input type="text" name="veggie_count" placeholder="Ex: 1">
+                        </div>
+
+                        <div class="form-group toggle-group">
+                            <label>Serez-vous présent au brunch ?</label>
+                            <label class="switch">
+                                <input type="checkbox" name="brunch" id="toggle-brunch">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group conditional-field" id="field-brunch" style="display: none;">
+                            <label>Nombre de personnes pour le brunch</label>
+                            <input type="text" name="brunch_count" placeholder="Ex: 2">
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-dark">Envoyer votre réponse</button>
                 </form>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <div class="icon-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <h2 class="section-title">Contact</h2>
+            </div>
+            
+            <div class="contact-card">
+                <p class="contact-email">
+                    <a href="mailto:famille.gautier.b@gmail.com">famille.gautier.b@gmail.com</a>
+                </p>
+                
+                <div class="phone-list">
+                    <div class="phone-item">
+                        <span>Marié : </span>
+                        <a href="tel:0640764250">06.40.76.42.50</a>
+                    </div>
+                    <div class="phone-item">
+                        <span>Mariée : </span>
+                        <a href="tel:0672276758">06.72.27.67.58</a>
+                    </div>
+                </div>
+
+                <div class="witnesses-section">
+                    <h4>Nos Témoins</h4>
+                    <div class="phone-list">
+                        <div class="phone-item">
+                            <span>Maurice : </span>
+                            <a href="tel:0672276758">06.72.27.67.58</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

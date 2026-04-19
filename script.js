@@ -45,14 +45,39 @@ document.querySelectorAll('section').forEach(section => {
 // Presence Buttons Logic
 const presenceBtns = document.querySelectorAll('.presence-btn');
 const presenceInput = document.getElementById('presence-input');
+const additionalFields = document.getElementById('additional-fields');
 
 presenceBtns.forEach(btn => {
     btn.addEventListener('click', function() {
         presenceBtns.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         presenceInput.value = this.dataset.value;
+        
+        // Hide additional fields if not coming
+        if (this.dataset.value === 'no') {
+            additionalFields.style.display = 'none';
+        } else {
+            additionalFields.style.display = 'block';
+        }
     });
 });
+
+// Conditional Fields Toggles
+function setupToggle(toggleId, fieldId) {
+    const toggle = document.getElementById(toggleId);
+    const field = document.getElementById(fieldId);
+    
+    if (toggle && field) {
+        toggle.addEventListener('change', function() {
+            field.style.display = this.checked ? 'block' : 'none';
+        });
+    }
+}
+
+setupToggle('toggle-accompanied', 'field-accompanied');
+setupToggle('toggle-children', 'field-children');
+setupToggle('toggle-veggie', 'field-veggie');
+setupToggle('toggle-brunch', 'field-brunch');
 
 // Carousel Logic
 const carousel = document.getElementById('venue-carousel');
