@@ -4,40 +4,51 @@ const envelopeContainer = document.getElementById('envelope-container');
 const envelopeHint = document.getElementById('envelope-hint');
 
 if (envelopeWrapper && envelopeContainer) {
-    // Show hint after 3 seconds if not clicked
-    const hintTimeout = setTimeout(() => {
-        if (!envelopeContainer.classList.contains('open')) {
-            envelopeHint.classList.add('visible');
-        }
-    }, 3000);
+    // Show hint immediately
+    if (!envelopeContainer.classList.contains('open')) {
+        envelopeHint.classList.add('visible');
+    }
 
     envelopeContainer.addEventListener('click', () => {
         if (envelopeContainer.classList.contains('open')) return;
         
         envelopeContainer.classList.add('open');
         envelopeHint.classList.remove('visible');
-        clearTimeout(hintTimeout);
         
-        // Wait for flap animation, then fade out wrapper
+        const whiteFlash = document.getElementById('white-flash');
+        
+        // 1. Wait for flap to open (slower now: 1.5s)
         setTimeout(() => {
-            envelopeWrapper.classList.add('hidden');
-            document.body.classList.remove('locked');
+            // 2. Trigger White Flash
+            if (whiteFlash) whiteFlash.style.opacity = '1';
             
-            // Re-trigger scroll animations and force visible ones
-            document.querySelectorAll('section').forEach(section => {
-                // If section is in viewport or very close to it, show it immediately
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    section.classList.add('is-visible');
-                }
-                observer.observe(section);
-            });
-        }, 800);
-        
-        // Clean up DOM
-        setTimeout(() => {
-            envelopeWrapper.style.display = 'none';
-        }, 2500);
+            // 3. While screen is white, swap envelope for content
+            setTimeout(() => {
+                envelopeWrapper.style.display = 'none';
+                document.body.classList.remove('locked');
+                
+                // Re-trigger scroll animations
+                document.querySelectorAll('section').forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        section.classList.add('is-visible');
+                    }
+                    observer.observe(section);
+                });
+
+                // 4. Fade out White Flash
+                setTimeout(() => {
+                    if (whiteFlash) {
+                        whiteFlash.style.opacity = '0';
+                        setTimeout(() => {
+                            whiteFlash.style.display = 'none';
+                        }, 1000);
+                    }
+                }, 500);
+
+            }, 1000); // Wait for flash to cover screen
+
+        }, 1200); // Trigger flash before flap is fully finished for better flow
     });
 }
 

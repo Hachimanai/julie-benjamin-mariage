@@ -8,25 +8,22 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400;500&family=Great+Vibes&family=Caveat:wght@400;500;600;700&family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body class="locked">
+    <!-- White Flash Overlay -->
+    <div id="white-flash" class="white-flash"></div>
+
     <!-- Envelope Overlay -->
     <div id="envelope-wrapper" class="envelope-wrapper">
         <div id="envelope-container" class="envelope-container">
             <div class="env-back"></div>
-            <div class="env-letter">
-                <div class="env-letter-content">
-                    <p class="env-letter-names">Julie & Benjamin</p>
-                    <div class="env-letter-divider">♥</div>
-                </div>
-            </div>
             <div class="env-left"></div>
             <div class="env-right"></div>
             <div class="env-bottom"></div>
             <div class="env-flap"></div>
-            <div class="wax-seal">J&B</div>
-            <div class="envelope-hint" id="envelope-hint">Cliquez pour ouvrir</div>
+            <div class="wax-seal"><span>J&B</span></div>
+            <div class="envelope-hint" id="envelope-hint">Toucher pour ouvrir</div>
         </div>
     </div>
 
@@ -36,6 +33,11 @@
             <div class="hero-photo">
                 <!-- Emplacement pour la photo "Photo de nous" -->
                 <img src="images/nous.jpg" alt="Julie & Benjamin" onerror="this.style.display='none'; this.parentElement.classList.add('placeholder');">
+                <div class="scroll-arrow">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                    </svg>
+                </div>
             </div>
             <h1 class="names">Julie & Benjamin</h1>
             <p class="invite-text">VOUS INVITENT À CÉLÉBRER LEUR MARIAGE</p>
@@ -398,5 +400,20 @@
     </main>
 
     <script src="script.js"></script>
+    
+    <!-- SVG Filters for Realistic Effects -->
+    <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+        <filter id="wax-texture">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
+            <feDiffuseLighting in="noise" lighting-color="#4169E1" surfaceScale="2">
+                <feDistantLight azimuth="45" elevation="60" />
+            </feDiffuseLighting>
+            <feComposite operator="in" in2="SourceGraphic" />
+        </filter>
+        <filter id="organic-edge">
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="turb" />
+            <feDisplacementMap in="SourceGraphic" in2="turb" scale="5" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
 </body>
 </html>
