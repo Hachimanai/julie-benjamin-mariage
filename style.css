@@ -939,7 +939,7 @@ input[type="text"] {
 
 .presence-btn {
     padding: 16px 10px;
-    background: #eeeeee;
+    background: #f0f0f0;
     border-radius: 8px;
     font-size: 11px;
     color: var(--text-secondary);
@@ -950,6 +950,15 @@ input[type="text"] {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid transparent;
+}
+
+.presence-btn.active {
+    background: var(--accent-blue);
+    color: white;
+    font-weight: 500;
+    border-color: var(--accent-blue);
+    box-shadow: 0 4px 12px rgba(65, 105, 225, 0.2);
 }
 
 .conditional-field {
@@ -963,6 +972,14 @@ input[type="text"] {
     display: block;
     opacity: 1;
     transform: translateY(0);
+}
+
+.toggle-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-top: 1px solid #e8e1d9;
 }
 
 .toggle-group:last-of-type {
