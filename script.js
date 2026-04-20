@@ -110,8 +110,10 @@ presenceBtns.forEach(btn => {
         // Hide additional fields if not coming
         if (this.dataset.value === 'no') {
             additionalFields.style.display = 'none';
+            additionalFields.classList.remove('visible');
         } else {
             additionalFields.style.display = 'block';
+            setTimeout(() => additionalFields.classList.add('visible'), 10);
         }
     });
 });
@@ -123,7 +125,13 @@ function setupToggle(toggleId, fieldId) {
     
     if (toggle && field) {
         toggle.addEventListener('change', function() {
-            field.style.display = this.checked ? 'block' : 'none';
+            if (this.checked) {
+                field.style.display = 'block';
+                setTimeout(() => field.classList.add('visible'), 10);
+            } else {
+                field.classList.remove('visible');
+                setTimeout(() => field.style.display = 'none', 300);
+            }
         });
     }
 }
