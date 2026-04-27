@@ -6,8 +6,8 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Testing Setup' (Protocol in workflow.md)
 
 ## Phase 2: HTML Modification
-- [ ] Task: Modify `index.html` to find all program time elements in the timeline.
-- [ ] Task: Replace the original time strings with `--h--`.
-- [ ] Task: Run the DOM test again and confirm it passes (Green Phase).
-- [ ] Task: Open the file in a browser to manually verify the visual styling remains consistent.
+- [x] Task: Modify `index.html` to find all program time elements in the timeline.
+- [x] Task: Replace the original time strings with `--h--`. a8f87cd
+- [x] Task: Run the DOM test again and confirm it passes (Green Phase).
+- [~] Task: Open the file in a browser to manually verify the visual styling remains consistent.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: HTML Modification' (Protocol in workflow.md)
