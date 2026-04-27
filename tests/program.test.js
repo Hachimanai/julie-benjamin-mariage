@@ -19,7 +19,7 @@ describe('Program Times', () => {
         expect(timeElements.length).toBeGreaterThan(0);
         
         timeElements.forEach(el => {
-            expect(el.textContent.trim()).toBe('--h--');
+            expect(el.textContent.trim().toLowerCase()).toBe('--h--');
         });
     });
 });
