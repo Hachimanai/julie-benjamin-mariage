@@ -714,13 +714,13 @@ section.is-visible {
 
 .menu-card {
     background: var(--inner-beige);
-    padding: 40px 30px;
+    padding: 30px 20px;
     border-radius: 1rem;
     text-align: center;
 }
 
 .menu-icon {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     color: var(--accent-blue);
@@ -731,13 +731,18 @@ section.is-visible {
     color: var(--text-primary);
     line-height: 1.8;
     font-weight: 300;
+    margin: 0;
+}
+
+.menu-card p:not(:last-child) {
+    margin-bottom: 15px;
 }
 
 /* Dress Code */
 .dress-card {
     background-color: var(--inner-beige);
     border-radius: 1rem;
-    padding: 60px 30px;
+    padding: 30px 20px;
     text-align: center;
 }
 
@@ -746,7 +751,7 @@ section.is-visible {
     font-size: 18px;
     color: var(--text-primary);
     line-height: 1.6;
-    margin-bottom: 35px;
+    margin: 0;
     font-weight: 400;
 }
 
@@ -969,17 +974,27 @@ input[type="text"] {
     transform: translateY(0);
 }
 
+.conditional-field {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.conditional-field > label {
+    margin-bottom: 8px;
+}
+
 .toggle-group {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 0;
+    padding: 15px 0;
     border-top: 1px solid #e8e1d9;
+    margin-bottom: 0;
 }
 
 .toggle-group:last-of-type {
     border-bottom: 1px solid #e8e1d9;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .toggle-group label {
@@ -1032,6 +1047,73 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(22px);
+}
+
+.accompanied-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-remove-person {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-remove-person:hover {
+    background: #ffe5e5;
+}
+
+.btn-add-person {
+    background: transparent;
+    border: 1px dashed #d1ccc6;
+    color: var(--accent-blue);
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    font-family: var(--font-sans);
+    transition: all 0.2s;
+    margin-top: 10px;
+}
+
+.btn-add-person:hover {
+    border-color: var(--accent-blue);
+    background: rgba(65, 105, 225, 0.03);
+}
+
+.total-people-container {
+    background: #ffffff;
+    border: 1px solid #e8e1d9;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.total-people-container strong {
+    font-size: 18px;
+    color: var(--accent-blue);
+    font-family: var(--font-serif);
 }
 
 /* Contact */

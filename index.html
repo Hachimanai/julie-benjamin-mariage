@@ -175,7 +175,7 @@
             <div class="menu-content">
                 <div class="menu-card">
                     <div class="menu-icon">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
                             <path d="m5 3 1 1"></path>
                             <path d="m19 17 1 1"></path>
@@ -183,7 +183,8 @@
                             <path d="m5 17-1 1"></path>
                         </svg>
                     </div>
-                    <p>Nous vous réservons la surprise du menu, mais nous prévoyons un menu végétarien.<br><br>Merci de le préciser lors de votre réponse dans le formulaire ci-dessous.</p>
+                    <p class="menu-text-part">Nous vous réservons la surprise du menu, mais nous prévoyons un menu végétarien.</p>
+                    <p class="menu-text-part">Merci de le préciser lors de votre réponse dans le formulaire ci-dessous.</p>
                 </div>
             </div>
         </section>
@@ -298,8 +299,16 @@
                             </label>
                         </div>
                         <div class="form-group conditional-field" id="field-accompanied" style="display: none;">
-                            <label>Nom et prénom des personnes</label>
-                            <input type="text" name="accompanied_names" placeholder="Ex: Jean et Marie Dupont">
+                            <label>Nom et prénom des personnes accompagnantes</label>
+                            <div id="accompanied-list">
+                                <div class="accompanied-item">
+                                    <input type="text" name="accompanied_names[]" class="accompanied-input" placeholder="Ex: Jean Dupont">
+                                </div>
+                            </div>
+                            <button type="button" id="add-accompanied-btn" class="btn-add-person">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                Ajouter une personne
+                            </button>
                         </div>
 
                         <div class="form-group toggle-group">
@@ -311,7 +320,15 @@
                         </div>
                         <div class="form-group conditional-field" id="field-children" style="display: none;">
                             <label>Prénom - Nom des enfants + âge</label>
-                            <input type="text" name="children_names" placeholder="Ex: Léo (5 ans), Emma (8 ans)">
+                            <div id="children-list">
+                                <div class="accompanied-item">
+                                    <input type="text" name="children_names[]" class="accompanied-input" placeholder="Ex: Léo (5 ans)">
+                                </div>
+                            </div>
+                            <button type="button" id="add-children-btn" class="btn-add-person">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                Ajouter un enfant
+                            </button>
                         </div>
 
                         <div class="form-group toggle-group">
@@ -337,6 +354,11 @@
                             <label>Nombre de personnes pour le brunch</label>
                             <input type="text" name="brunch_count" placeholder="Ex: 2">
                         </div>
+                    </div>
+
+                    <div id="total-people-container" class="total-people-container">
+                        <span>Nombre total de personnes :</span>
+                        <strong id="total-people-count">1</strong>
                     </div>
 
                     <button type="submit" class="btn btn-dark">Envoyer votre réponse</button>

@@ -100,6 +100,45 @@ document.querySelectorAll('section').forEach(section => {
 const presenceBtns = document.querySelectorAll('.presence-btn');
 const presenceInput = document.getElementById('presence-input');
 const additionalFields = document.getElementById('additional-fields');
+const accompaniedList = document.getElementById('accompanied-list');
+const addAccompaniedBtn = document.getElementById('add-accompanied-btn');
+const toggleAccompanied = document.getElementById('toggle-accompanied');
+
+const childrenList = document.getElementById('children-list');
+const addChildrenBtn = document.getElementById('add-children-btn');
+const toggleChildren = document.getElementById('toggle-children');
+
+const totalPeopleCount = document.getElementById('total-people-count');
+const totalPeopleContainer = document.getElementById('total-people-container');
+
+function updateTotalCount() {
+    if (!totalPeopleCount || !totalPeopleContainer) return;
+    
+    let total = 0;
+    
+    if (presenceInput && presenceInput.value === 'yes') {
+        total += 1; // Main guest
+        
+        if (toggleAccompanied && toggleAccompanied.checked && accompaniedList) {
+            const inputs = accompaniedList.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') total += 1;
+            });
+        }
+        
+        if (toggleChildren && toggleChildren.checked && childrenList) {
+            const inputs = childrenList.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') total += 1;
+            });
+        }
+        
+        totalPeopleContainer.style.display = 'flex';
+        totalPeopleCount.innerText = total;
+    } else {
+        totalPeopleContainer.style.display = 'none';
+    }
+}
 
 presenceBtns.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -115,6 +154,7 @@ presenceBtns.forEach(btn => {
             additionalFields.style.display = 'block';
             setTimeout(() => additionalFields.classList.add('visible'), 10);
         }
+        updateTotalCount();
     });
 });
 
@@ -140,6 +180,85 @@ setupToggle('toggle-accompanied', 'field-accompanied');
 setupToggle('toggle-children', 'field-children');
 setupToggle('toggle-veggie', 'field-veggie');
 setupToggle('toggle-brunch', 'field-brunch');
+
+if (toggleAccompanied) {
+    toggleAccompanied.addEventListener('change', updateTotalCount);
+}
+
+if (toggleChildren) {
+    toggleChildren.addEventListener('change', updateTotalCount);
+}
+
+if (accompaniedList) {
+    accompaniedList.addEventListener('input', updateTotalCount);
+}
+
+if (childrenList) {
+    childrenList.addEventListener('input', updateTotalCount);
+}
+
+if (addAccompaniedBtn && accompaniedList) {
+    addAccompaniedBtn.addEventListener('click', () => {
+        const inputs = accompaniedList.querySelectorAll('input');
+        if (inputs.length > 0) {
+            const lastInput = inputs[inputs.length - 1];
+            if (lastInput.value.trim() === '') {
+                lastInput.focus();
+                return;
+            }
+        }
+
+        const item = document.createElement('div');
+        item.className = 'accompanied-item';
+        item.innerHTML = `
+            <input type="text" name="accompanied_names[]" class="accompanied-input" placeholder="Ex: Jean Dupont">
+            <button type="button" class="btn-remove-person" title="Supprimer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        `;
+        
+        item.querySelector('.btn-remove-person').addEventListener('click', function() {
+            item.remove();
+            updateTotalCount();
+        });
+        
+        accompaniedList.appendChild(item);
+        updateTotalCount();
+    });
+}
+
+// Initialize total count
+updateTotalCount();
+
+if (addChildrenBtn && childrenList) {
+    addChildrenBtn.addEventListener('click', () => {
+        const inputs = childrenList.querySelectorAll('input');
+        if (inputs.length > 0) {
+            const lastInput = inputs[inputs.length - 1];
+            if (lastInput.value.trim() === '') {
+                lastInput.focus();
+                return;
+            }
+        }
+
+        const item = document.createElement('div');
+        item.className = 'accompanied-item';
+        item.innerHTML = `
+            <input type="text" name="children_names[]" class="accompanied-input" placeholder="Ex: Léo (5 ans)">
+            <button type="button" class="btn-remove-person" title="Supprimer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        `;
+        
+        item.querySelector('.btn-remove-person').addEventListener('click', function() {
+            item.remove();
+            updateTotalCount();
+        });
+        
+        childrenList.appendChild(item);
+        updateTotalCount();
+    });
+}
 
 // Carousel Logic
 const carousel = document.getElementById('venue-carousel');
