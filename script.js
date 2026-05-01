@@ -403,29 +403,64 @@ if (rsvpForm) {
     rsvpForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
-        
-        console.log('Données RSVP reçues :', data);
-        
-        // Simple visual feedback
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerText;
         
         submitBtn.innerText = 'Envoi en cours...';
         submitBtn.disabled = true;
+
+        const formData = new FormData(this);
+        const data = {};
         
-        setTimeout(() => {
-            submitBtn.innerText = 'Réponse envoyée ! Merci ♥';
-            submitBtn.style.backgroundColor = '#c4a47c';
-            
-            // Optional: reset form after a delay
-            // setTimeout(() => {
-            //     rsvpForm.reset();
-            //     submitBtn.innerText = originalText;
-            //     submitBtn.disabled = false;
-            //     submitBtn.style.backgroundColor = '';
-            // }, 3000);
-        }, 1500);
+        // Handle form data and array values cleanly
+        formData.forEach((value, key) => {
+            const cleanKey = key.replace('[]', '');
+            if (value.trim() !== '') {
+                if (data[cleanKey]) {
+                    data[cleanKey] = data[cleanKey] + ', ' + value;
+                } else {
+                    data[cleanKey] = value;
+                }
+            }
+        });
+        
+        // Add Web3Forms settings
+        data.access_key = '20dc7acf-37d5-4d6b-9bc9-57ceb8d94edd';
+        data.subject = 'RSVP Mariage : ' + (data.fullname || 'Nouveau');
+        data.from_name = 'Invitation Julie & Benjamin';
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(async (response) => {
+            if (response.status === 200) {
+                submitBtn.innerText = 'Réponse envoyée ! Merci ♥';
+                submitBtn.style.backgroundColor = '#c4a47c'; // Gold color for success
+            } else {
+                console.error(await response.json());
+                submitBtn.innerText = 'Erreur. Veuillez réessayer.';
+                submitBtn.style.backgroundColor = '#ff6b6b';
+                setTimeout(() => {
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+                }, 4000);
+            }
+        })
+        .catch(error => {
+            console.error(error);
+            submitBtn.innerText = 'Erreur de connexion.';
+            submitBtn.style.backgroundColor = '#ff6b6b';
+            setTimeout(() => {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.backgroundColor = '';
+            }, 4000);
+        });
     });
 }
