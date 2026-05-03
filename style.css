@@ -920,7 +920,8 @@ section.is-visible {
     font-weight: 400;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="tel"] {
     width: 100%;
     padding: 16px;
     border: 1px solid #e8e1d9;

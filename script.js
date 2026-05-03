@@ -114,6 +114,9 @@ const childrenList = document.getElementById('children-list');
 const addChildrenBtn = document.getElementById('add-children-btn');
 const toggleChildren = document.getElementById('toggle-children');
 
+const veggieList = document.getElementById('veggie-list');
+const addVeggieBtn = document.getElementById('add-veggie-btn');
+
 const totalPeopleCount = document.getElementById('total-people-count');
 const totalPeopleContainer = document.getElementById('total-people-container');
 
@@ -156,9 +159,13 @@ presenceBtns.forEach(btn => {
         if (this.dataset.value === 'no') {
             additionalFields.style.display = 'none';
             additionalFields.classList.remove('visible');
+            const phoneInput = document.getElementById('contact-phone');
+            if (phoneInput) phoneInput.required = false;
         } else {
             additionalFields.style.display = 'block';
             setTimeout(() => additionalFields.classList.add('visible'), 10);
+            const phoneInput = document.getElementById('contact-phone');
+            if (phoneInput) phoneInput.required = true;
         }
         updateTotalCount();
     });
@@ -263,6 +270,34 @@ if (addChildrenBtn && childrenList) {
         
         childrenList.appendChild(item);
         updateTotalCount();
+    });
+}
+
+if (addVeggieBtn && veggieList) {
+    addVeggieBtn.addEventListener('click', () => {
+        const inputs = veggieList.querySelectorAll('input');
+        if (inputs.length > 0) {
+            const lastInput = inputs[inputs.length - 1];
+            if (lastInput.value.trim() === '') {
+                lastInput.focus();
+                return;
+            }
+        }
+
+        const item = document.createElement('div');
+        item.className = 'accompanied-item';
+        item.innerHTML = `
+            <input type="text" name="veggie_names[]" class="accompanied-input" placeholder="Ex: Marie Dupont">
+            <button type="button" class="btn-remove-person" title="Supprimer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        `;
+        
+        item.querySelector('.btn-remove-person').addEventListener('click', function() {
+            item.remove();
+        });
+        
+        veggieList.appendChild(item);
     });
 }
 
