@@ -374,24 +374,33 @@ section.is-visible {
     cursor: pointer;
     
     /* Glassmorphism effect for visibility */
-    width: 50px;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.2); /* Subtle dark tint */
+    padding: 10px 18px;
+    background: rgba(0, 0, 0, 0.35); /* Subtle dark tint */
     backdrop-filter: blur(8px); /* Blur the image behind the arrow */
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft white border */
-    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25); /* Soft white border */
+    border-radius: 30px;
     
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    white-space: nowrap;
+}
+
+.scroll-arrow span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
 }
 
 .scroll-arrow svg {
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-    width: 24px;
-    height: 24px;
+    width: 14px;
+    height: 14px;
 }
 
 @keyframes bounce {
