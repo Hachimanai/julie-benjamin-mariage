@@ -1,25 +1,23 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { JSDOM } from 'jsdom';
 import fs from 'fs';
 import path from 'path';
 
-const html = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8');
+const files = ['index.html', 'repas.html'];
 
 describe('Program Times', () => {
-    let dom;
-    let document;
-
-    beforeEach(() => {
-        dom = new JSDOM(html);
-        document = dom.window.document;
-    });
-
-    it('should have all program times set to --h--', () => {
-        const timeElements = document.querySelectorAll('.program-section .time');
-        expect(timeElements.length).toBeGreaterThan(0);
-        
-        timeElements.forEach(el => {
-            expect(el.textContent.trim().toLowerCase()).toBe('--h--');
+    files.forEach(file => {
+        it(`should have all program times set to --h-- in ${file}`, () => {
+            const html = fs.readFileSync(path.resolve(__dirname, `../${file}`), 'utf8');
+            const dom = new JSDOM(html);
+            const document = dom.window.document;
+            const timeElements = document.querySelectorAll('.program-section .time');
+            
+            expect(timeElements.length).toBeGreaterThan(0);
+            
+            timeElements.forEach(el => {
+                expect(el.textContent.trim().toLowerCase()).toBe('--h--');
+            });
         });
     });
 });

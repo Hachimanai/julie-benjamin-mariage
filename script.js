@@ -461,7 +461,8 @@ if (rsvpForm) {
         
         // Add Web3Forms settings
         data.access_key = '20dc7acf-37d5-4d6b-9bc9-57ceb8d94edd';
-        data.subject = 'RSVP Mariage : ' + (data.fullname || 'Nouveau');
+        const typeSuffix = data.type_invitation ? ` (${data.type_invitation})` : '';
+        data.subject = `RSVP Mariage${typeSuffix} : ` + (data.fullname || 'Nouveau');
         data.from_name = 'Invitation Julie & Benjamin';
 
         fetch('https://api.web3forms.com/submit', {

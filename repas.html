@@ -173,6 +173,66 @@
                         <strong>Cocktail & Photos</strong>
                     </div>
                 </div>
+                <div class="timeline-item">
+                    <div class="time">--H--</div>
+                    <div class="event">
+                        <strong>Dîner</strong>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">--H--</div>
+                    <div class="event">
+                        <strong>Ouverture du Bal</strong>
+                    </div>
+                </div>
+
+                <div class="timeline-day">Dimanche 25 juillet 2027</div>
+                <div class="timeline-item">
+                    <div class="time">--H--</div>
+                    <div class="event">
+                        <strong>Brunch</strong>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">--H--</div>
+                    <div class="event">
+                        <strong>Jeux de cartes, de société, pétanque...</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="menu-section">
+            <div class="icon-header">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 8c0 3.61-2.9 6-6 6-3.1 0-6-2.39-6-6V4h12v4z" />
+                    <path d="M12 14v7" />
+                    <path d="M9 21h6" />
+                </svg>
+                <h2 class="section-title">Menu</h2>
+            </div>
+
+            <div class="menu-content">
+                <div class="menu-card">
+                    <div class="menu-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z">
+                            </path>
+                            <path d="m5 3 1 1"></path>
+                            <path d="m19 17 1 1"></path>
+                            <path d="M21 3l-1 1"></path>
+                            <path d="m5 17-1 1"></path>
+                        </svg>
+                    </div>
+                    <p class="menu-text-part">Nous vous réservons la surprise du menu, mais nous prévoyons un menu
+                        végétarien.</p>
+                    <p class="menu-text-part">Merci de le préciser lors de votre réponse dans le formulaire ci-dessous.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -257,7 +317,7 @@
                     <div class="form-group">
                         <label>Serez-vous présent(e) ? *</label>
                         <input type="hidden" name="presence" id="presence-input" value="yes">
-                        <input type="hidden" name="type_invitation" value="Cocktail uniquement">
+                        <input type="hidden" name="type_invitation" value="Repas + Cocktail + Brunch">
                         <div class="presence-options">
                             <div class="presence-btn active" data-value="yes">Oui, je serai présent(e)</div>
                             <div class="presence-btn" data-value="no">Non désolé(e), je ne pourrai pas</div>
@@ -318,6 +378,43 @@
                                 </svg>
                                 Ajouter un enfant
                             </button>
+                        </div>
+
+                        <div class="form-group toggle-group">
+                            <label>Y a-t-il des personnes végétariennes ?</label>
+                            <label class="switch">
+                                <input type="checkbox" name="veggie" id="toggle-veggie">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group conditional-field" id="field-veggie" style="display: none;">
+                            <label>Nom et prénom des personnes végétariennes</label>
+                            <div id="veggie-list">
+                                <div class="accompanied-item">
+                                    <input type="text" name="veggie_names[]" class="accompanied-input"
+                                        placeholder="Ex: Marie Dupont">
+                                </div>
+                            </div>
+                            <button type="button" id="add-veggie-btn" class="btn-add-person">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Ajouter une personne
+                            </button>
+                        </div>
+
+                        <div class="form-group toggle-group">
+                            <label>Serez-vous présent au brunch ?</label>
+                            <label class="switch">
+                                <input type="checkbox" name="brunch" id="toggle-brunch">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="form-group conditional-field" id="field-brunch" style="display: none;">
+                            <label>Nombre de personnes pour le brunch</label>
+                            <input type="text" name="brunch_count" placeholder="Ex: 2">
                         </div>
                     </div>
 
