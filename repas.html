@@ -8,6 +8,7 @@
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none' stroke='%234169E1' stroke-width='4'><circle cx='24' cy='32' r='18'/><circle cx='40' cy='32' r='18'/></svg>"
         type="image/svg+xml">
+    <link rel="preload" href="images/Final_A_crop.jpg" as="image">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,17 +21,10 @@
     <!-- White Flash Overlay -->
     <div id="white-flash" class="white-flash"></div>
 
-    <!-- Envelope Overlay -->
-    <div id="envelope-wrapper" class="envelope-wrapper">
-        <div id="envelope-container" class="envelope-container">
-            <div class="env-back"></div>
-            <div class="env-left"></div>
-            <div class="env-right"></div>
-            <div class="env-bottom"></div>
-            <div class="env-flap"></div>
-            <div class="wax-seal"><span>J&B</span></div>
-            <div class="envelope-hint" id="envelope-hint">Toucher pour ouvrir</div>
-        </div>
+    <!-- Cover Overlay -->
+    <div id="cover-wrapper" class="cover-wrapper">
+        <img src="images/Final_A_crop.jpg" alt="Julie & Benjamin" class="cover-photo">
+        <div class="cover-hint" id="cover-hint">Découvrir l'invitation</div>
     </div>
 
     <main>

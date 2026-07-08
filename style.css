@@ -43,8 +43,8 @@ body.locked {
     transition: opacity 1s ease-in-out;
 }
 
-/* Envelope Overlay */
-.envelope-wrapper {
+/* Cover Overlay */
+.cover-wrapper {
     position: fixed;
     inset: 0;
     background-color: var(--page-bg);
@@ -52,210 +52,39 @@ body.locked {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 1s ease-in-out 0.5s;
-    overflow: hidden; /* Prevent scrollbars when envelope is huge */
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity 1s ease-in-out;
 }
 
-.envelope-wrapper.hidden {
+.cover-wrapper.hidden {
     opacity: 0;
     pointer-events: none;
 }
 
-.envelope-container {
-    position: relative;
-    height: 100vh; /* Full screen height */
-    aspect-ratio: 3 / 2; /* Maintain envelope proportions */
-    width: auto;
-    cursor: pointer;
-    perspective: 1500px;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (min-width: 768px) {
-    .envelope-container {
-        height: 85vh; /* Slightly smaller on desktop for elegance */
-        max-height: 800px;
-    }
-}
-
-.envelope-container:hover {
-    transform: translateY(-8px) scale(1.01);
-}
-
-.env-back {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #e8e1d9 0%, #dcd6ce 100%);
-    border-radius: 8px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.2), 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.env-flap {
-    position: absolute;
-    top: 0;
-    left: 0;
+.cover-photo {
     width: 100%;
-    height: 62%;
-    background: linear-gradient(to bottom, #dcd6ce 0%, #c9bfb3 100%);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transform-origin: top;
-    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.7s;
-    z-index: 6;
-}
-
-.env-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 55%;
     height: 100%;
-    background: linear-gradient(to right, #f2eee9 0%, #e5dfd6 100%);
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-    z-index: 3;
+    object-fit: cover;
 }
 
-.env-right {
+.cover-hint {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 55%;
-    height: 100%;
-    background: linear-gradient(to left, #f2eee9 0%, #e5dfd6 100%);
-    clip-path: polygon(100% 0, 0 50%, 100% 100%);
-    z-index: 3;
-}
-
-.env-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 56%;
-    background: linear-gradient(to top, #faf7f2 0%, #ede6db 100%);
-    clip-path: polygon(0 100%, 50% 0, 100% 100%);
-    z-index: 4;
-}
-
-.wax-seal {
-    position: absolute;
-    top: 55%; /* Remonté légèrement */
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-2deg);
-    width: 130px; /* Encore agrandi */
-    height: 170px; /* Encore agrandi */
-    
-    background: var(--accent-blue);
-    background: radial-gradient(circle at 30% 30%, #5d83f5 0%, var(--accent-blue) 45%, #12245e 100%);
-    
-    /* Organic oval base using complex border-radius to avoid pixelated SVG filter */
-    border-radius: 48% 52% 50% 51% / 51% 49% 52% 48%; 
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
-    
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* Family Seal Initials - High Visibility Embossed Gold/Silver look in blue tones */
-    color: #eef2ff;
-    font-family: 'Great Vibes', cursive;
-    font-size: 48px; /* Initiales agrandies */
-    font-weight: 500;
-    z-index: 15;
-    
-    /* Restore Volume and depth */
-    box-shadow: 
-        inset 2px 2px 5px rgba(255, 255, 255, 0.4),
-        inset -5px -5px 15px rgba(0, 0, 0, 0.7);
-        
-    transition: all 0.3s ease-out;
-}
-
-.wax-seal span {
-    display: block;
-    position: relative; /* Essential for z-index */
-    z-index: 20; /* High enough to be on top of all pseudo-elements */
-    transform: rotate(-5deg);
-    text-shadow: 
-        1px 1px 0px rgba(255, 255, 255, 0.4),
-        -1px -1px 2px rgba(0, 0, 0, 0.8),
-        0px 0px 10px rgba(0, 0, 0, 0.4);
-    line-height: 1;
-    margin-top: -5px;
-}
-
-/* The Chiseled Inner Frame (Family Crest style) */
-.wax-seal::after {
-    content: "";
-    position: absolute;
-    inset: 18px;
-    background: inherit;
-    border-radius: inherit; /* S'adapte à la forme du parent */
-    
-    /* Multiple concentric chiseled rings */
-    box-shadow: 
-        inset 0 0 0 1px rgba(0,0,0,0.2),
-        inset 0 0 0 3px rgba(255,255,255,0.1),
-        inset 0 0 0 5px rgba(0,0,0,0.3),
-        inset 0 0 20px rgba(0, 0, 0, 0.6),
-        0 0 12px rgba(0, 0, 0, 0.4);
-    
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    z-index: 12; /* Between background and text */
-}
-
-/* Lacquered finish and specks of texture */
-.wax-seal::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit; /* S'adapte à la forme du parent */
-    background: 
-        radial-gradient(circle at 35% 25%, rgba(255,255,255,0.4) 0%, transparent 20%),
-        radial-gradient(circle at 75% 80%, rgba(255,255,255,0.1) 0%, transparent 35%);
-    pointer-events: none;
-    mix-blend-mode: screen;
-    filter: url(#wax-texture);
-    opacity: 0.4;
-    z-index: 11;
-}
-
-.envelope-container.open .env-flap {
-    transform: rotateX(180deg);
-    z-index: 1;
-}
-
-.envelope-container.open .wax-seal {
-    display: none;
-}
-
-.envelope-hint {
-    position: absolute;
-    top: 68%;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Alex Brush', cursive; /* Elegant pen/nib calligraphy style */
-    font-size: 38px; /* Larger to appreciate the pen strokes */
+    font-family: 'Alex Brush', cursive;
+    font-size: 38px;
     color: var(--accent-blue);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     white-space: nowrap;
-    font-weight: 400;
-    letter-spacing: 1px;
     z-index: 20;
-}
-
-.envelope-hint.visible {
-    opacity: 1;
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
+    animation: hintPulse 2s infinite ease-in-out;
 }
 
 @keyframes hintPulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
+    0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(0.98); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.02); }
 }
 
 main {

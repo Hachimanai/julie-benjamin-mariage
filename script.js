@@ -4,57 +4,41 @@ if ('scrollRestoration' in history) {
 }
 window.scrollTo(0, 0);
 
-// Envelope Animation Logic
-const envelopeWrapper = document.getElementById('envelope-wrapper');
-const envelopeContainer = document.getElementById('envelope-container');
-const envelopeHint = document.getElementById('envelope-hint');
+// Cover Animation Logic
+const coverWrapper = document.getElementById('cover-wrapper');
 
-if (envelopeWrapper && envelopeContainer) {
-    // Show hint immediately
-    if (!envelopeContainer.classList.contains('open')) {
-        envelopeHint.classList.add('visible');
-    }
-
-    envelopeContainer.addEventListener('click', () => {
-        if (envelopeContainer.classList.contains('open')) return;
-        
-        envelopeContainer.classList.add('open');
-        envelopeHint.classList.remove('visible');
-        
+if (coverWrapper) {
+    coverWrapper.addEventListener('click', () => {
         const whiteFlash = document.getElementById('white-flash');
         
-        // 1. Wait for flap to open (slower now: 1.5s)
+        // 1. Trigger White Flash immediately
+        if (whiteFlash) whiteFlash.style.opacity = '1';
+        
+        // 2. While screen is white, swap cover for content
         setTimeout(() => {
-            // 2. Trigger White Flash
-            if (whiteFlash) whiteFlash.style.opacity = '1';
+            coverWrapper.style.display = 'none';
+            document.body.classList.remove('locked');
             
-            // 3. While screen is white, swap envelope for content
+            // Re-trigger scroll animations
+            document.querySelectorAll('section').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    section.classList.add('is-visible');
+                }
+                observer.observe(section);
+            });
+
+            // 3. Fade out White Flash
             setTimeout(() => {
-                envelopeWrapper.style.display = 'none';
-                document.body.classList.remove('locked');
-                
-                // Re-trigger scroll animations
-                document.querySelectorAll('section').forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight) {
-                        section.classList.add('is-visible');
-                    }
-                    observer.observe(section);
-                });
+                if (whiteFlash) {
+                    whiteFlash.style.opacity = '0';
+                    setTimeout(() => {
+                        whiteFlash.style.display = 'none';
+                    }, 1000);
+                }
+            }, 500);
 
-                // 4. Fade out White Flash
-                setTimeout(() => {
-                    if (whiteFlash) {
-                        whiteFlash.style.opacity = '0';
-                        setTimeout(() => {
-                            whiteFlash.style.display = 'none';
-                        }, 1000);
-                    }
-                }, 500);
-
-            }, 1000); // Wait for flash to cover screen
-
-        }, 1200); // Trigger flash before flap is fully finished for better flow
+        }, 1000); // Wait for flash to cover screen
     });
 }
 
