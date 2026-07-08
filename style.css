@@ -70,21 +70,44 @@ body.locked {
 
 .cover-hint {
     position: absolute;
-    bottom: 80px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Alex Brush', cursive;
-    font-size: 38px;
+    font-size: 32px;
     color: var(--accent-blue);
     white-space: nowrap;
     z-index: 20;
-    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9);
-    animation: hintPulse 2s infinite ease-in-out;
+    
+    /* Glassmorphism */
+    padding: 8px 28px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: all 0.3s ease-in-out;
+    animation: hintPulse 2.5s infinite ease-in-out;
 }
 
 @keyframes hintPulse {
-    0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(0.98); }
-    50% { opacity: 1; transform: translateX(-50%) scale(1.02); }
+    0%, 100% { 
+        opacity: 0.9; 
+        transform: translateX(-50%) scale(0.97); 
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+    50% { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1.03); 
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        background: rgba(255, 255, 255, 0.85);
+    }
 }
 
 main {
