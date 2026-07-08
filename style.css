@@ -366,9 +366,8 @@ section.is-visible {
 
 .scroll-arrow {
     position: absolute;
-    bottom: 40px;
+    bottom: 0px;
     left: 50%;
-    transform: translateX(-50%);
     color: white;
     z-index: 10;
     animation: bounce 2s infinite;
@@ -376,17 +375,11 @@ section.is-visible {
     
     /* Glassmorphism effect for visibility */
     padding: 10px 18px;
-    background: rgba(0, 0, 0, 0.35); /* Subtle dark tint */
-    backdrop-filter: blur(8px); /* Blur the image behind the arrow */
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.25); /* Soft white border */
-    border-radius: 30px;
     
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
     white-space: nowrap;
 }
 
@@ -400,8 +393,8 @@ section.is-visible {
 
 .scroll-arrow svg {
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
-    width: 14px;
-    height: 14px;
+    width: 60px;
+    height: 60px;
 }
 
 @keyframes bounce {
